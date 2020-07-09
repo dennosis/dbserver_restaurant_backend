@@ -6,7 +6,7 @@ class Vote extends schema {
         this.id = obj.id
         this.userId = obj.userId;
         this.restaurantId = obj.restaurantId;
-        this.date = (new Date).toLocaleDateString()  
+        this.date = obj.date  
     }
 }
 

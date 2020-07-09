@@ -16,8 +16,12 @@ module.exports = {
     },
     create : async (req, res) => {
         try {
-            const { userId, restaurantId } = req.body
-            const vote = await new Vote({userId, restaurantId})
+            const { userId, restaurantId, date } = req.body
+            
+            if((new date(date)).getTime() < (new Date((new Date()).toLocaleString())).getTime())
+                return res.status(405).json({message: "Vote cannot be created on this date", error: {date}});
+
+            const vote = await new Vote({userId, restaurantId, date})
             await vote.save()
             res.json(vote)
         } catch (error) {
@@ -50,6 +54,11 @@ module.exports = {
     delete:async (req, res) => {
         try {
             const {id} = req.params
+            const vote = await Vote.findOne({"id":id})
+
+            if((new date(vote.date)).getTime() < (new Date((new Date()).toLocaleString())).getTime())
+                return res.status(405).json({message: "Vote cannot be removed", error: {date:vote.date}});
+
             res.json(Vote.remove({"id":id}))
         } catch (error) {
             res.status(500).json({message: "Error remove vote", error: error});
