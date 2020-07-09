@@ -1,73 +1,35 @@
 {
   "User": [
     {
-      "id": "drcYZL47T",
-      "name": "beltrano"
-    },
-    {
-      "id": "10vr2SwD0",
-      "name": "ciclano"
-    },
-    {
-      "id": "74D_jfcDh",
-      "name": "dennis"
-    },
-    {
-      "id": "_7kgKLUO6",
-      "name": "dennis"
-    },
-    {
       "id": "xJRSGMPZU",
-      "name": "beltrano",
-      "favoriteRestaurantId": "3MwxVwC_i"
+      "name": "Joao",
+      "favoriteRestaurantId": "y5Vi1KJjB"
     },
     {
       "id": "DM29RfvsD",
-      "name": "beltrano",
-      "favoriteRestaurantId": "3MwxVwC_i"
+      "name": "Maria"
     },
     {
       "id": "RY7QV20mB",
-      "name": "beltrano",
-      "favoriteRestaurantId": "3MwxVwC_i"
+      "name": "Jose",
+      "favoriteRestaurantId": "9Crx0fKP9M"
     },
     {
       "id": "IQpvMbHuo",
-      "name": "beltrano",
-      "favoriteRestaurantId": "3MwxVwC_i"
+      "name": "Nestor"
     },
     {
       "id": "1cbmb6CpV",
-      "name": "beltrano",
-      "favoriteRestaurantId": "3MwxVwC_i"
+      "name": "Pedro",
+      "favoriteRestaurantId": "9Crx0fKP9M"
     },
     {
       "id": "ofgRM3NLf",
-      "name": "beltrano",
+      "name": "Dennis",
       "favoriteRestaurantId": "3MwxVwC_i"
     },
     {
       "id": "xv4ucwhuk",
-      "name": "beltrano",
-      "favoriteRestaurantId": "3MwxVwC_i"
-    },
-    {
-      "id": "iGENYH_L5",
-      "name": "beltrano",
-      "favoriteRestaurantId": "3MwxVwC_i"
-    },
-    {
-      "id": "quvdGkvkF",
-      "name": "beltrano",
-      "favoriteRestaurantId": "3MwxVwC_i"
-    },
-    {
-      "id": "vbSW55MM-",
-      "name": "beltrano",
-      "favoriteRestaurantId": "3MwxVwC_i"
-    },
-    {
-      "id": "lQYF5UZiV",
       "name": "beltrano",
       "favoriteRestaurantId": "3MwxVwC_i"
     }
@@ -75,15 +37,15 @@
   "Restaurant": [
     {
       "id": "y5Vi1KJjB",
-      "name": "beltrano"
+      "name": "Mc Donalds"
     },
     {
       "id": "9Crx0fKP9M",
-      "name": "beltrano"
+      "name": "Kfc"
     },
     {
       "id": "3MwxVwC_i",
-      "name": "beltrano"
+      "name": "Burger TB"
     }
   ],
   "Vote": [
@@ -102,6 +64,24 @@
     {
       "id": "X054owqBI",
       "userId": "74D_jfcDh",
+      "restaurantId": "9Crx0fKP9M",
+      "date": "7/5/2020"
+    },
+    {
+      "id": "lsKX4dQjP",
+      "userId": "osdidsoids",
+      "restaurantId": "9Crx0fKP9M",
+      "date": "7/5/2020"
+    },
+    {
+      "id": "6a_vnTWzg",
+      "userId": "osdidsoids",
+      "restaurantId": "9Crx0fKP9M",
+      "date": "7/5/2020"
+    },
+    {
+      "id": "Jb9R4RZtJ",
+      "userId": "osdidsoids",
       "restaurantId": "9Crx0fKP9M",
       "date": "7/5/2020"
     }
