@@ -4,7 +4,12 @@ module.exports = {
 
     index: async (req, res) => {
         try {
-            res.json(Vote.find())
+            const {date} = req.query
+            if(date){
+                res.json(Vote.find({date}))
+            }else{
+                res.json(Vote.find())
+            }
         } catch (error) {
             res.status(500).json({message: "Error find votes", error: error});
         }
