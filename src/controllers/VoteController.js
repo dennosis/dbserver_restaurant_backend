@@ -9,7 +9,13 @@ const validateRestaurantVote = async (vote) =>{
     
     const checkRestaurant = winningRestaurantByDayFromWeekDays.filter((item)=>item.id===vote.restaurantId)
 
-    return (checkRestaurant.length === 0)
+    if(checkRestaurant.length === 0)
+        return true
+    
+    if(checkRestaurant[0].date === vote.date)
+        return true
+
+    return false
 }
 
 const winningRestaurantByDay = (findDate)=>{
@@ -19,6 +25,7 @@ const winningRestaurantByDay = (findDate)=>{
     
     const winning = {
         id:undefined,
+        date:date.toLocaleDateString(),
         votes: []
     }
 
@@ -77,9 +84,9 @@ module.exports = {
             
             if((new Date(date)).getTime() < (new Date((new Date()).toLocaleDateString())).getTime())
                 return res.status(405).json({message: "Vote cannot be created on this date", error: {date}});
-             
-            const vote = await new Vote({userId, restaurantId, date})
             
+            const vote = await new Vote({userId, restaurantId, date})
+
             if(!(await validateRestaurantVote(vote)))
                 return res.status(405).json({message: "This restaurant was already chosen in the week", error: {restaurantId}});
 
