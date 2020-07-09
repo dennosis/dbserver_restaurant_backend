@@ -111,10 +111,19 @@ module.exports = {
     update: async (req, res) => {
         try {
 
-            const {id, userId, restaurantId } = req.body
+            const {id, userId, restaurantId, date } = req.body
+
+            if((new Date(date)).getTime() < (new Date((new Date()).toLocaleDateString())).getTime())
+                return res.status(405).json({message: "Vote cannot be update on this date", error: {date}});
+        
             const vote = await Vote.findOne({"id":id})
-            user.userId = userId
-            user.restaurantId = restaurantId
+
+            if(!(await validateRestaurantVote(vote)))
+                return res.status(405).json({message: "This restaurant was already chosen in the week", error: {restaurantId}});
+
+            vote.userId=userId
+            vote.restaurantId=restaurantId
+
             await vote.save()
             res.json(vote)
         } catch (error) {

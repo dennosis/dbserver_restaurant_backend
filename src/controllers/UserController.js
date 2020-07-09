@@ -13,6 +13,9 @@ module.exports = {
     create : async (req, res) => {
         try {
             const { name, favoriteRestaurantId } = req.body
+            if(name===undefined || name==="")
+                return res.status(400).json({message: "invalid name", error: {name}});
+    
             const user = await new User({name, favoriteRestaurantId})
             await user.save()
             res.json(user)
@@ -33,6 +36,10 @@ module.exports = {
     update: async (req, res) => {
         try {
             const {id, name, favoriteRestaurantId } = req.body
+
+            if(name===undefined || name==="")
+                return res.status(400).json({message: "invalid name", error: {name}});
+        
             const user = await User.findOne({"id":id})
             user.name = name
             user.favoriteRestaurantId = favoriteRestaurantId

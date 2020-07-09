@@ -12,6 +12,9 @@ module.exports = {
     create : async (req, res) => {
         try {
             const { name, location } = req.body
+            if(name===undefined || name==="")
+                return res.status(400).json({message: "invalid name", error: {name}});
+    
             const restaurant = await new Restaurant({name, location})
             await restaurant.save()
             res.json(restaurant)
@@ -32,6 +35,10 @@ module.exports = {
     update: async (req, res) => {
         try {
             const {id, name, location } = req.body
+
+            if(name===undefined || name==="")
+                return res.status(400).json({message: "invalid name", error: {name}});
+    
             const restaurant = await Restaurant.findOne({"id":id})
             restaurant.name = name
             restaurant.location = location
